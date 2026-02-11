@@ -15,7 +15,7 @@ player_numbers = {}
 coins = {}
 
 # 🔒 Replace this with Nico's real Discord ID
-AUTHORIZED_USER_ID = 123456789012345678  
+AUTHORIZED_USER_ID = 1258115928525373570  
 
 @bot.event
 async def on_ready():
