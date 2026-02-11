@@ -14,12 +14,12 @@ intents.members = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-# -------------------- STORAGE --------------------
+# -------------------- CONFIG --------------------
+
+GUILD_ID = 1471142728082522187
+AUTHORIZED_USER_ID = 1258115928525373570
 
 coins = {}
-
-# 🔒 REPLACE THIS WITH YOUR REAL USER ID
-AUTHORIZED_USER_ID = 1258115928525373570  
 
 # -------------------- EVENTS --------------------
 
@@ -42,7 +42,7 @@ async def gamble(ctx):
     if ctx.guild is None:
         return
 
-    if ctx.guild.id != 1470848789433679883:
+    if ctx.guild.id != GUILD_ID:
         await ctx.send("❌ Not allowed in this server.")
         return
 
