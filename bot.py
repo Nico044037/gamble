@@ -4,6 +4,22 @@ import asyncio
 import random
 import os
 import sys
+from flask import Flask
+import threading
+
+# -------------------- KEEP ALIVE WEB SERVER --------------------
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Bot is running."
+
+def run_web():
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
+
+threading.Thread(target=run_web).start()
 
 # -------------------- INTENTS --------------------
 
@@ -46,10 +62,7 @@ async def gamble(ctx):
         await ctx.send("❌ Not allowed in this server.")
         return
 
-    message = await ctx.send(
-        "🎲 React with 👍 to join! (60 seconds)"
-    )
-
+    message = await ctx.send("🎲 React with 👍 to join! (60 seconds)")
     await message.add_reaction("👍")
 
     await asyncio.sleep(60)
