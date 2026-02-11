@@ -50,6 +50,7 @@ async def on_command_error(ctx, error):
         return
     print(f"Error: {error}")
 
+
 # -------------------- GAMBLE --------------------
 
 @bot.command()
@@ -91,12 +92,19 @@ async def gamble(ctx):
 
     await ctx.send(f"🎉 {winner.mention} wins 8 coins!")
 
+#---------------------Rules-----------------------
+async def rules(ctx):
+    if ctx.guild.id == GUILD_ID:
+        await ctx.send("1. No bullying and no Racism.\n2. No minimodding. This includes imitating higher roles.\n3. No spam.\n4. No wrong usage of coins. ")
+    
+    
+    
 # -------------------- BALANCE --------------------
 
 @bot.command()
 async def balance(ctx):
     bal = coins.get(ctx.author.id, 0)
-    await ctx.send(f"💰 You have {bal} coins.")
+    await ctx.send(f"💰 You have **{bal}** coins.")
 
 # -------------------- SUDO DEV --------------------
 
