@@ -93,7 +93,7 @@ async def gamble(ctx):
     await ctx.send(f"🎉 {winner.mention} wins 8 coins!")
 
 #---------------------Rules-----------------------
-@bot.command 
+@bot.command()
 async def rules(ctx):
     if ctx.guild.id == GUILD_ID:
         await ctx.send("1. No bullying and no Racism.\n2. No minimodding. This includes imitating higher roles.\n3. No spam.\n4. No wrong usage of coins. ")
